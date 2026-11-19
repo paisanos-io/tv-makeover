@@ -1,0 +1,60 @@
+# XGIMI Elfin Flip Plus projector (model WK03C, device altai, product falcon, MediaTek m7332), Android TV 11
+# (SDK 30), build RTMA.250416.085.13680289 release-keys, security patch 2025-06-01, about 1.7 GB RAM, 1920x1080,
+# density 320. Tested in Portugal.
+#
+# Apply:   TV_HOST=<projector ip> tools/disable.sh examples/xgimi-elfin-flip-plus/debloat.txt
+# Undo:    TV_HOST=<projector ip> tools/restore.sh examples/xgimi-elfin-flip-plus/debloat.txt
+# Everything is DISABLED, not uninstalled. Comment out any line you want to keep.
+#
+# State read from the unit on 2026-11-18, with couch-tv as the Home (a restart checked: Home came back).
+# Not lived with for days; if something breaks, re-enable it with `pm enable <package>`.
+#
+# There is NO Google launcher on this firmware (neither the Android TV nor the Google TV one is installed). The only
+# package besides the Home app and Settings' FallbackHome that offers a Home screen is the setup wizard,
+# com.google.android.tungsten.setupwraith (.RecoveryActivity, priority 1), so it is in the list below: left on,
+# it outranks a launcher at priority 0. Settings' FallbackHome (priority -1000) stays.
+# Live TV app: none (no tuner; com.mediatek.wwtv.tvcenter is the HDMI input view). One input, HDMI 1.
+#
+# Launcher notes (checked on the unit):
+# - Inputs: the standard passthrough link works. OK on HDMI 1 opens com.mediatek.wwtv.tvcenter's TurnkeyUiMainActivity
+#   and Home comes back. com.xgimi.action.hdmiPlayer (needed on the Horizon S Pro) does not exist here, so no
+#   input_action is needed. com.android.tv.action.VIEW_INPUTS and android.media.tv.action.SETUP_INPUTS resolve too.
+# - Projector settings (keystone, focus, picture) stay reachable: Settings tile, TV settings, Projector.
+# - The remote's YouTube and Netflix buttons are scancodes 398 (KEY_RED, Android keycode 134 F4) and 399 (KEY_GREEN,
+#   keycode 139 F9). com.xgimi.xrmservice takes them first (a GLOBAL_BUTTON broadcast) and opens Google's YouTube
+#   or Netflix. A launcher that wants them for other apps has to catch them as an accessibility service.
+# - The 1080p WebView of couch-tv reached the screen at 30 fps (Mali-G52); drawn at 720p it ran at 60. For a
+#   launcher drawn in views this is not an issue.
+#
+# DO NOT DISABLE on XGIMI (projector hardware and inputs):
+# com.xgimi.autokst                    # auto keystone correction
+# com.xgimi.windowsystem               # keystone / window service
+# com.xgimi.tof                        # ToF autofocus
+# com.xgimi.misckey                    # remote keys, focus and keystone shortcuts
+# com.xgimi.uiconfiguration            # global key receiver, power listener
+# com.xgimi.xrmservice                 # picture and sound adaptation, global key broadcast
+# com.xgimi.xgimiservice               # core XGIMI system service
+# com.xgimi.gimiplayer                 # media player (opens passthrough and file links)
+# com.xgimi.overseas.xgimiatvbootwizard  # first-boot wizard: kept
+# com.mediatek.tvinput                 # HDMI input service
+# com.mediatek.wwtv.tvcenter           # HDMI input view
+# com.mediatek.tv.service              # TV framework
+
+# Setup wizard that claims Home (see above)
+com.google.android.tungsten.setupwraith
+
+# Store demo, factory and test tools
+fusion.android.tv.demo                 # RetailDisplay store demo
+com.xgimi.atvwifiverify                # factory Wi-Fi verification
+com.xgimi.minitvfactory                # factory menu
+com.xgimi.yg.minitvfactory             # factory menu (second copy)
+
+# Telemetry, feedback and preloads
+com.xgimi.bugreportsender              # XGIMI bug report uploader
+com.google.android.feedback            # Google feedback
+
+# Google and other preloads
+com.google.android.play.games          # Play Games
+com.google.android.youtube.tvmusic     # YouTube Music
+com.tcl.browser                        # TCL browser preload
+com.google.android.apps.tv.dreamx      # Google TV ambient mode (idle adverts); couch-tv's apply.sh switches it off too
