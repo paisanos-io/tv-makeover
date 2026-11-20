@@ -95,7 +95,7 @@ Ask in your own words, for example:
 AGENTS.md    instructions for any coding agent (CLAUDE.md imports it)
 skills/      the five skills, with their scripts and references
 templates/   looks for the home screen: dreamos, starter, extreme
-tvs/         124 tested TV profiles (123 from cleanyourtv + Hitachi CDH-LE504KSMART20) and INDEX.md
+tvs/         125 tested TV profiles (123 from cleanyourtv + Hitachi CDH-LE504KSMART20 + XGIMI Elfin Flip Plus) and INDEX.md
 scripts/     doctor, apply-template, extreme-performance, find-tv-profile, sync-tv-profiles, ...
 ```
 

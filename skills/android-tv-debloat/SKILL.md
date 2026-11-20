@@ -11,7 +11,7 @@ holding `templates/`, `tvs/` and `scripts/`). Run commands from `<repo>` or use 
 Scripts live in `<skill>/scripts`. They take `TV_HOST=<tv ip>` and `CYT=<path to the cleanyourtv
 clone>` (default: the current directory) and use cleanyourtv's `tools/tv.py`, a pure-Python ADB client.
 Firmware quirks and lessons from real units are in `references/quirks.md`; read it when something behaves
-oddly. Profiles for 124 tested TVs and boxes are in `<repo>/tvs` (`INDEX.md`); find the closest ones to
+oddly. Profiles for 125 tested TVs and boxes are in `<repo>/tvs` (`INDEX.md`); find the closest ones to
 this TV with `<repo>/scripts/find-tv-profile.sh <brand model chip android>` and read their headers
 before deciding anything.
 

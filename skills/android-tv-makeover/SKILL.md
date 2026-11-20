@@ -38,7 +38,7 @@ Read the next skill when you reach its phase; each one is self-contained.
 
 1. Clone cleanyourtv next to the work (`git clone https://github.com/Gathin23/cleanyourtv`), create its
    venv (`python3 -m venv tools/venv && tools/venv/bin/pip install -r tools/requirements.txt`) and look for
-   the user's model among the 124 profiles in `<repo>/tvs` with
+   the user's model among the 125 profiles in `<repo>/tvs` with
    `<repo>/scripts/find-tv-profile.sh` (also read lists for the same chip/firmware), and run
    `<repo>/scripts/doctor.sh` to check the computer has what the launcher build needs.
 2. Identify the platform: search the model number, and read what the TV announces on the network
