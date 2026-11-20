@@ -13,7 +13,7 @@ commands (Claude Code, Codex, others). Everything it does to a TV is reversible.
   - `android-tv-launcher-design`: implement a design (Figma, mockup, brief) as a template, verify, measure
   - `android-tv-ui-sounds`: create, prepare and wire startup / move / select sounds
 - `templates/`: looks for the Home screen (`dreamos`, `starter`, `extreme`); see templates/README.md.
-- `tvs/`: 124 tested TV profiles; `tvs/INDEX.md`; `scripts/find-tv-profile.sh` finds the closest one.
+- `tvs/`: 125 tested TV profiles; `tvs/INDEX.md`; `scripts/find-tv-profile.sh` finds the closest one.
 - `scripts/`: `doctor.sh`, `apply-template.sh`, `extreme-performance.sh`, `find-tv-profile.sh`, ...
 
 In the skills, `<repo>` means this folder and `<skill>` the skill's own folder.
